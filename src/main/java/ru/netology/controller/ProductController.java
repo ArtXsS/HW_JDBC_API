@@ -1,8 +1,11 @@
-package ru.netology;
+package ru.netology.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import ru.netology.repository.ProductRepository;
+
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -14,7 +17,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/fetch-product")
-    public String fetchProduct(@RequestParam String name) {
+    public List<String> fetchProduct(@RequestParam String name) {
         return productRepository.getProductName(name);
     }
 }
